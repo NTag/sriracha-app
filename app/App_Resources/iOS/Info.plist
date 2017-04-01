@@ -43,5 +43,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+  <array>
+      <dict>
+          <key>CFBundleURLName</key>
+          <string>com.helpmewhenimdrunk</string>
+      </dict>
+      <dict>
+          <key>CFBundleURLSchemes</key>
+          <array>
+              <string>helpmebudget</string>
+          </array>
+      </dict>
+  </array>
 </dict>
 </plist>
