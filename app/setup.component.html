@@ -1,1 +1,7 @@
 <ActionBar title="Setup"></ActionBar>
+<FlexboxLayout flexDirection="column">
+  <Label text="Choose 5 friends who will help you spending too much money" textWrap="true" *ngIf="friends.length < 5"></Label>
+  <Button text="Add a friend" (tap)="addFriend()" *ngIf="friends.length < 5"></Button>
+
+  <Label *ngFor="let friend of friends" text="{{ friend.display }}"></Label>
+</FlexboxLayout>

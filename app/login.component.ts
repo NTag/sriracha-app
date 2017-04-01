@@ -19,13 +19,13 @@ export class LoginComponent {
         if (appURL.params.has('access_token')) {
           console.log('access_token', appURL.params.get('access_token'));
           this.userService.setAccessToken(appURL.params.get('access_token'));
-          this.router.navigate(["/setup"]); 
+          this.router.navigate(["/setup"]);
         }
       }
     });
   }
 
   monzoConnect() {
-    openUrl('https://auth.getmondo.co.uk/?client_id=oauthclient_00009IxQz65UhA8dG2z4Sn&redirect_uri=http://google.com&response_type=code&state=randomSTRING');
+    openUrl('https://auth.getmondo.co.uk/?client_id=oauthclient_00009IxQz65UhA8dG2z4Sn&redirect_uri=http://localhost:8000/monzo-connect&response_type=code&state=randomSTRING');
   }
 }
