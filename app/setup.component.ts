@@ -39,7 +39,9 @@ export class SetupComponent {
 
       if (this.friends.length === 5) {
         console.dump(this.friends);
-        // Send the list to the backend
+        _.forEach(this.friends, friend => {
+          this.userService.addFriend(friend).subscribe(() => {}, () => {});
+        });
       }
     });
   }
