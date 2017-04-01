@@ -1,0 +1,21 @@
+<ActionBar title="sriracha"></ActionBar>
+<TabView #element [(ngModel)]="selectedIndex">
+    <template tabItem title="Secrets">
+        <StackLayout>
+            <Label text="Dark secrets from friends"></Label>
+        </StackLayout>
+    </template>
+    <FlexboxLayout *tabItem="{title: 'Budget'}" flexDirection="column" class="tab-budget">
+        <Label text="Amount" class="amount"></Label>
+        <FlexboxLayout flexDirection="row" class="amount-input">
+          <Label text="£" class="big-mono"></Label>
+          <TextView text="25" class="big-mono input" keyboardType="phone"></TextView>
+          <Label text=".00" class="big-mono"></Label>
+        </FlexboxLayout>
+
+        <Label text="End" class="amount"></Label>
+        <TimePicker hour="6" minute="0" minuteInterval="15"></TimePicker>
+
+        <Button text="Limit me" class="confirm-btn"></Button>
+    </FlexboxLayout>
+</TabView>
