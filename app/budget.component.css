@@ -1,27 +1,38 @@
-.amount {
+.title {
   text-align: center;
   text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.legend {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-align: center;
 }
 .big-mono {
   font-size: 70px;
   font-weight: bold;
   font-family: monospace;
+  /*background-color: gray;*/
 }
-.amount-input {
+.amount-flex {
   justify-content: center;
 }
 .input {
   text-align: right;
   width: 140px;
+  /*background-color: blue;*/
 }
 .confirm-btn {
   text-transform: uppercase;
   background-color: #ccc;
   border-radius: 5px;
-  margin: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+  height: 60px;
 }
 .tab-budget {
   justify-content: space-between;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
