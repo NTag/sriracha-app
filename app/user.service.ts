@@ -17,7 +17,7 @@ export class UserService {
     headers.append("Content-Type", "application/json");
 
     return this.http.post(
-      this.apiUrl + '/api/' + this.username + '/addfriend/',
+      this.apiUrl + '/api/' + this.getUsername() + '/addfriend/',
       JSON.stringify(friend),
       { headers: headers }
     )
@@ -34,5 +34,12 @@ export class UserService {
   }
   public setAccessToken(access_token:string) {
     this.access_token = access_token;
+  }
+
+  public getUsername():string {
+    return this.username;
+  }
+  public setUsername(username:string) {
+    this.username = username;
   }
 }

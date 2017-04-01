@@ -17,9 +17,10 @@ export class LoginComponent {
       console.log('Got the following appURL', appURL);
 
       if (/monzo-connect/.test(appURL.path)) {
-        if (appURL.params.has('access_token')) {
-          console.log('access_token', appURL.params.get('access_token'));
+        if (appURL.params.has('access_token') && appURL.params.has('username')) {
+          console.log('access_token', appURL.params.get('access_token'), 'username', appURL.params.get('username'));
           this.userService.setAccessToken(appURL.params.get('access_token'));
+          this.userService.setUsername(appURL.params.get('username'));
           this.routerExtensions.navigate(["/setup"], { clearHistory: true });
         }
       }
