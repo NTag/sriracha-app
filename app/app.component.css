@@ -1,0 +1,12 @@
+.main-flex {
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+}
+.monzo-btn {
+  text-transform: uppercase;
+  padding: 10px;
+  background-color: #ccc;
+  margin: 50px;
+  color: white;
+}
