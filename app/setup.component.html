@@ -4,4 +4,7 @@
   <Button text="Add a friend" (tap)="addFriend()" *ngIf="friends.length < 5"></Button>
 
   <Label *ngFor="let friend of friends" text="{{ friend.display }}"></Label>
+
+  <Label *ngIf="friends.length === 5" text="You are all set up!" style="text-align: center;"></Label>
+  <Button *ngIf="friends.length === 5" text="Start stop spending money &gt;&gt;" (tap)="goHome()"></Button>
 </FlexboxLayout>
