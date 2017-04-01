@@ -26,6 +26,6 @@ export class LoginComponent {
   }
 
   monzoConnect() {
-    openUrl('https://auth.getmondo.co.uk/?client_id=oauthclient_00009IxQz65UhA8dG2z4Sn&redirect_uri=http://localhost:8000/monzo-connect&response_type=code&state=randomSTRING');
+    openUrl('https://auth.getmondo.co.uk/?client_id=oauthclient_00009IxQz65UhA8dG2z4Sn&redirect_uri=http://localhost:8080/monzo-connect&response_type=code&state=randomSTRING');
   }
 }

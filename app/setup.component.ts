@@ -31,9 +31,15 @@ export class SetupComponent {
 
         this.friends.push({
           id: contact.id,
+          firstname: contact.name.given,
+          lastname: contact.name.family,
           display: contact.name.given + " " + contact.name.family,
           phoneNumbers: contact.phoneNumbers
         });
+      }
+
+      if (this.friends.length === 5) {
+        // Send the list to the backend
       }
     });
   }
