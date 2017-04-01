@@ -46,6 +46,10 @@ export class SetupComponent {
     });
   }
 
+  removeFriend(i:number) {
+    this.friends.splice(i, 1);
+  }
+
   goHome() {
     this.routerExtensions.navigate(['/budget'], { clearHistory: true });
   }
