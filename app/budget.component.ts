@@ -8,6 +8,8 @@ import { Router } from "@angular/router";
   styleUrls: ['./budget.component.css']
 })
 export class BudgetComponent {
+  selectedIndex:number = 1;
+
   constructor(private userService: UserService, private router: Router) {
 
   }
