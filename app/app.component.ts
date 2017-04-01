@@ -11,6 +11,12 @@ export class AppComponent {
   constructor() {
     handleOpenURL((appURL: AppURL) => {
       console.log('Got the following appURL', appURL);
+
+      if (/monzo-connect/.test(appURL.path)) {
+        if (appURL.params.has('access_token')) {
+          console.log('access_token', appURL.params.get('access_token'));
+        }
+      }
     });
   }
 
