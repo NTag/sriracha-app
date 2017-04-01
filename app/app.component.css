@@ -4,9 +4,8 @@
   text-align: center;
 }
 .monzo-btn {
-  text-transform: uppercase;
-  padding: 10px;
-  background-color: #ccc;
+  height: 100px;
+  width: 300px;
   margin: 50px;
-  color: white;
+  border-radius: 5px;
 }
