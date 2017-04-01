@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { handleOpenURL, AppURL } from 'nativescript-urlhandler';
 import { openUrl } from 'utils/utils';
 import { UserService } from "./user.service";
-import { Router } from "@angular/router";
+import { RouterExtensions } from "nativescript-angular/router";
+
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, private routerExtensions: RouterExtensions) {
     handleOpenURL((appURL: AppURL) => {
       console.log('Got the following appURL', appURL);
 
@@ -19,7 +20,7 @@ export class LoginComponent {
         if (appURL.params.has('access_token')) {
           console.log('access_token', appURL.params.get('access_token'));
           this.userService.setAccessToken(appURL.params.get('access_token'));
-          this.router.navigate(["/setup"]);
+          this.routerExtensions.navigate(["/setup"], { clearHistory: true });
         }
       }
     });

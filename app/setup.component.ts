@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { handleOpenURL, AppURL } from 'nativescript-urlhandler';
 import { UserService } from "./user.service";
 import { getContact } from 'nativescript-contacts';
+import { RouterExtensions } from "nativescript-angular/router";
 import * as _ from 'lodash';
 
 @Component({
@@ -11,7 +12,7 @@ import * as _ from 'lodash';
 })
 export class SetupComponent {
   friends:any[] = [];
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private routerExtensions: RouterExtensions) {
 
   }
 
@@ -42,5 +43,9 @@ export class SetupComponent {
         // Send the list to the backend
       }
     });
+  }
+
+  goHome() {
+    this.routerExtensions.navigate(['/budget'], { clearHistory: true });
   }
 }
