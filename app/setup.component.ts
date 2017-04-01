@@ -32,14 +32,13 @@ export class SetupComponent {
 
         this.friends.push({
           id: contact.id,
-          firstname: contact.name.given,
-          lastname: contact.name.family,
-          display: contact.name.given + " " + contact.name.family,
-          phoneNumbers: contact.phoneNumbers
+          name: contact.name.given + " " + contact.name.family,
+          phoneNumbers: _.map(contact.phoneNumbers, 'value')
         });
       }
 
       if (this.friends.length === 5) {
+        console.dump(this.friends);
         // Send the list to the backend
       }
     });
