@@ -54,7 +54,7 @@ export class UserService {
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
 
-    return this.http.post(this.apiUrl + '/user/' + this.getUsername(),
+    return this.http.post(this.apiUrl + '/user/' + this.getUsername() + '/api/name',
       { name: name },
       { headers: headers }
     )
