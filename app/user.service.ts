@@ -24,6 +24,21 @@ export class UserService {
     .catch(this.handleErrors);
   }
 
+  public addBudget(amount:number, end:Date) {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+
+    return this.http.post(
+      this.apiUrl + '/user/' + this.getUsername() + '/budget/',
+      JSON.stringify({
+        amount: amount,
+        end: end.toISOString()
+      }),
+      { headers: headers }
+    )
+    .catch(this.handleErrors);
+  }
+
   handleErrors(error: Response) {
     console.log(JSON.stringify(error.json()));
     return Observable.throw(error);
