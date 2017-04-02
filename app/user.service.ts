@@ -7,8 +7,9 @@ import "rxjs/add/operator/map";
 @Injectable()
 export class UserService {
   private access_token:string;
-  private username:string;
-  private apiUrl = 'http://localhost:8080';
+  private username:string = 'jjar';
+  // private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'https://sriracha-app.herokuapp.com';
 
   constructor(private http: Http) {}
 
@@ -29,13 +30,24 @@ export class UserService {
     headers.append("Content-Type", "application/json");
 
     return this.http.post(
-      this.apiUrl + '/user/' + this.getUsername() + '/budget/',
+      this.apiUrl + '/user/' + this.getUsername() + '/api/budget/new/',
       JSON.stringify({
         amount: amount,
         end: end.toISOString()
       }),
       { headers: headers }
     )
+    .catch(this.handleErrors);
+  }
+
+  public getBudget() {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+
+    return this.http.get(this.apiUrl + '/user/' + this.getUsername() + '/api/budget',
+      { headers: headers }
+    )
+    .map(body => { return body.json() })
     .catch(this.handleErrors);
   }
 
@@ -62,7 +74,7 @@ export class UserService {
   }
 
   handleErrors(error: Response) {
-    console.log(JSON.stringify(error.json()));
+    console.dump(error);
     return Observable.throw(error);
   }
 

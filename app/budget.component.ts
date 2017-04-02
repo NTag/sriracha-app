@@ -19,6 +19,8 @@ export class BudgetComponent {
   constructor(private userService: UserService, private router: Router) {
     topmost().ios.controller.navigationBar.translucent = false;
     topmost().ios.controller.navigationBar.barStyle = UIBarStyle.UIBarStyleBlack;
+
+    this.updateBudgetInfos();
   }
 
   launchBudget() {
@@ -44,11 +46,31 @@ export class BudgetComponent {
     setInterval(updateTimeRemaining, 1000);
   }
 
+  updateUserInfos() {
+    this.userService.getUser().subscribe(userInfos => {
+      console.dump(userInfos);
+      this.userInfos = userInfos;
+    }, error => console.log('error', error));
+  }
+  updateBudgetInfos() {
+    this.userService.getBudget().subscribe(budget => {
+      console.dump(budget);
+      if (budget && budget.amount !== undefined && budget.end) {
+        this.activeBudget = {
+          amount: parseInt(budget.amount),
+          end: new Date(budget.end),
+          remaining: ''
+        };
+        this.launchBudget();
+      }
+    });
+  }
+
   tabChange() {
     if (this.selectedIndex === 1) { // previous tab
-      this.userService.getUser().subscribe(userInfos => {
-        this.userInfos = userInfos;
-      });
+      this.updateUserInfos();
+    } else if (this.selectedIndex === 0) { // budget tab
+      this.updateBudgetInfos();
     }
   }
 
