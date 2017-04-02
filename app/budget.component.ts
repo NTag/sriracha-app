@@ -13,7 +13,7 @@ export class BudgetComponent {
   selectedIndex:number = 1;
   amount:number = 30;
   end:Date;
-  userInfos;
+  userSecrets:any[] = [];
   activeBudget;
   cancelable:boolean = false;
   timeCancel:number = 10;
@@ -50,9 +50,9 @@ export class BudgetComponent {
   }
 
   updateUserInfos() {
-    this.userService.getUser().subscribe(userInfos => {
-      console.dump(userInfos);
-      this.userInfos = userInfos;
+    this.userService.getUser().subscribe(userSecrets => {
+      console.dump(userSecrets);
+      this.userSecrets = userSecrets;
     }, error => console.log('error', error));
   }
   updateBudgetInfos() {
