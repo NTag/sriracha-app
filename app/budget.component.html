@@ -1,8 +1,11 @@
 <ActionBar title="sriracha"></ActionBar>
-<TabView #element [(ngModel)]="selectedIndex">
+<TabView #element [(ngModel)]="selectedIndex" (selectedIndexChanged)="tabChange()">
   <template tabItem title="Secrets">
-    <StackLayout>
-      <Label text="Dark secrets from friends"></Label>
+    <StackLayout *ngIf="userInfos && userInfos.secrets">
+      <StackLayout *ngFor="let secret of userInfos.secrets">
+        <Label text="{{ secret.name }}"></Label>
+        <Label text="{{ secret.secret }}"></Label>
+      </StackLayout>
     </StackLayout>
   </template>
   <FlexboxLayout *tabItem="{title: 'Budget'}" flexDirection="column" class="tab-budget">

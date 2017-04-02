@@ -39,6 +39,17 @@ export class UserService {
     .catch(this.handleErrors);
   }
 
+  public getUser() {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+
+    return this.http.get(this.apiUrl + '/user/' + this.getUsername(),
+      { headers: headers }
+    )
+    .map(body => { return body.json() })
+    .catch(this.handleErrors);
+  }
+
   handleErrors(error: Response) {
     console.log(JSON.stringify(error.json()));
     return Observable.throw(error);

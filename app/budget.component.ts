@@ -11,9 +11,18 @@ export class BudgetComponent {
   selectedIndex:number = 1;
   amount:number = 30;
   end:Date;
+  userInfos;
 
   constructor(private userService: UserService, private router: Router) {
 
+  }
+
+  tabChange() {
+    if (this.selectedIndex === 1) { // previous tab
+      this.userService.getUser().subscribe(userInfos => {
+        this.userInfos = userInfos;
+      });
+    }
   }
 
   addBudget() {
