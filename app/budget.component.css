@@ -13,7 +13,7 @@
 .big-mono {
   font-size: 70px;
   font-weight: bold;
-  font-family: monospace;
+  font-family: "Menlo", monospace;
   /*background-color: gray;*/
 }
 .amount-flex {
@@ -35,4 +35,15 @@
 .tab-budget {
   justify-content: space-between;
   margin-bottom: 60px;
+}
+
+.budget-active-warning {
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  text-transform: uppercase;
+  color: red;
+}
+.text-center {
+  text-align: center;
 }

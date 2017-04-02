@@ -9,7 +9,7 @@
     </StackLayout>
   </template>
   <FlexboxLayout *tabItem="{title: 'Budget'}" flexDirection="column" class="tab-budget">
-    <StackLayout>
+    <StackLayout *ngIf="!activeBudget">
       <Label text="Amount" class="title"></Label>
       <Label text="The maximum amount you plan to spend" class="legend"></Label>
       <FlexboxLayout flexDirection="row" class="amount-flex">
@@ -19,12 +19,23 @@
       </FlexboxLayout>
     </StackLayout>
 
-    <StackLayout>
+    <StackLayout *ngIf="!activeBudget">
       <Label text="End" class="title"></Label>
       <Label text="The hour when the limit should be raised" class="legend"></Label>
       <TimePicker hour="6" minute="0" minuteInterval="15" [(ngModel)]="end"></TimePicker>
     </StackLayout>
 
-    <Button text="Limit me" class="confirm-btn" (tap)="addBudget()"></Button>
+    <Button *ngIf="!activeBudget" text="Limit me" class="confirm-btn" (tap)="addBudget()"></Button>
+
+    <Label *ngIf="activeBudget" text="Budget active" class="budget-active-warning"></Label>
+    <StackLayout *ngIf="activeBudget">
+      <Label text="Amount left" class="legend"></Label>
+      <Label text="£ {{ activeBudget.amount }}.00" class="big-mono text-center"></Label>
+    </StackLayout>
+
+    <StackLayout *ngIf="activeBudget" style="margin-bottom: 40px;">
+      <Label text="Time remaining" class="legend"></Label>
+      <Label text="{{ activeBudget.remaining }}" class="big-mono text-center"></Label>
+    </StackLayout>
   </FlexboxLayout>
 </TabView>
