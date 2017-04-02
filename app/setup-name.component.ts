@@ -21,7 +21,7 @@ export class SetupNameComponent {
   }
 
   save() {
-    this.userService.setUserName(this.name).subscribe(() => {}, () => {});
+    this.userService.setUserName(this.name).subscribe((info) => { console.dump(info)}, (error) => { console.dump(error)});
     this.goNext();
   }
 
