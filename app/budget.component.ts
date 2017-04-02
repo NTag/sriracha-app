@@ -15,6 +15,9 @@ export class BudgetComponent {
   end:Date;
   userInfos;
   activeBudget;
+  cancelable:boolean = false;
+  timeCancel:number = 10;
+  timerCancel;
 
   constructor(private userService: UserService, private router: Router) {
     topmost().ios.controller.navigationBar.translucent = false;
@@ -88,10 +91,27 @@ export class BudgetComponent {
       d = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, minutes);
     }
 
-    this.userService.addBudget(this.amount, d).subscribe(() => {}, () => {});
-
     this.activeBudget = { amount: this.amount, end: d, remaining: '' };
     this.launchBudget();
+
+    this.cancelable = true;
+    this.timerCancel = setInterval(() => {
+      if (this.timeCancel > 0) {
+        this.timeCancel--;
+      } else {
+        clearInterval(this.timerCancel);
+        this.userService.addBudget(this.amount, d).subscribe(() => {}, () => {});
+        this.cancelable = false;
+        this.timeCancel = 10;
+      }
+    }, 1000);
+  }
+
+  cancelBudget() {
+    clearInterval(this.timerCancel);
+    this.timeCancel = 10;
+    this.activeBudget = null;
+    this.cancelable = false;
   }
 
 }

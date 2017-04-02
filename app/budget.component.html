@@ -37,5 +37,7 @@
       <Label text="Time remaining" class="legend"></Label>
       <Label text="{{ activeBudget.remaining }}" class="big-mono text-center"></Label>
     </StackLayout>
+
+    <Button *ngIf="cancelable" text="Cancel {{ timeCancel }}" class="btn" (tap)="cancelBudget()"></Button>
   </FlexboxLayout>
 </TabView>
