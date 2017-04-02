@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Oh no baby</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -44,17 +44,17 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>CFBundleURLTypes</key>
-  <array>
-      <dict>
-          <key>CFBundleURLName</key>
-          <string>com.helpmewhenimdrunk</string>
-      </dict>
-      <dict>
-          <key>CFBundleURLSchemes</key>
-          <array>
-              <string>helpmebudget</string>
-          </array>
-      </dict>
-  </array>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.helpmewhenimdrunk</string>
+		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>helpmebudget</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
