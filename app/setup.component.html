@@ -1,6 +1,6 @@
 <ActionBar title="Setup"></ActionBar>
 <FlexboxLayout flexDirection="column">
-  <Label text="Choose 5 friends who will help you spending too much money" textWrap="true" *ngIf="friends.length < 5" style="margin: 20px; text-align: center;"></Label>
+  <Label text="Choose 5 friends who will help you not spending too much money" textWrap="true" *ngIf="friends.length < 5" style="margin: 20px; text-align: center;"></Label>
   <Button text="Add a friend" (tap)="addFriend()" *ngIf="friends.length < 5"></Button>
 
   <Border *ngFor="let friend of friends; let i = index" borderRadius="3" borderWidth="2" borderColor="#ccc" style="margin: 20px; margin-top: 20px; margin-bottom: 0px;">

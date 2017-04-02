@@ -1,0 +1,6 @@
+<ActionBar title="Setup"></ActionBar>
+<FlexboxLayout flexDirection="column" style="justify-content: center;">
+  <Label text="First, what is your name?" textWrap="true" style="margin: 20px; text-align: center;"></Label>
+  <TextView [(ngModel)]="name" placeholder="Elon Musk" style="margin: 20px; text-align: center; background-color: #eee;" autofocus="autofocus"></TextView>
+  <Button text="Save" (tap)="save()" *ngIf="name && name.length > 1"></Button>
+</FlexboxLayout>

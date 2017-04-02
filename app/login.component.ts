@@ -21,7 +21,7 @@ export class LoginComponent {
           console.log('access_token', appURL.params.get('access_token'), 'username', appURL.params.get('username'));
           this.userService.setAccessToken(appURL.params.get('access_token'));
           this.userService.setUsername(appURL.params.get('username'));
-          this.routerExtensions.navigate(["/setup"], { clearHistory: true });
+          this.routerExtensions.navigate(["/setup-name"], { clearHistory: true });
         }
       }
     });
