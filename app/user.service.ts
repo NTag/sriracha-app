@@ -16,9 +16,8 @@ export class UserService {
   public addFriend(friend) {
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
-
     return this.http.post(
-      this.apiUrl + '/api/' + this.getUsername() + '/addfriend/',
+      this.apiUrl + '/user/' + this.getUsername() + '/api/addfriend/',
       JSON.stringify(friend),
       { headers: headers }
     )

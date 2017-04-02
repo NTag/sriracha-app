@@ -43,7 +43,7 @@ export class SetupComponent {
       if (this.friends.length === 3) {
         console.dump(this.friends);
         _.forEach(this.friends, friend => {
-          this.userService.addFriend(friend).subscribe(() => {}, () => {});
+          this.userService.addFriend(friend).subscribe((info) => { console.dump(info)}, (error) => { console.dump(error)});
         });
       }
     });
