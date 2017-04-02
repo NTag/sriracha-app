@@ -1,6 +1,6 @@
-<ActionBar title="sriracha"></ActionBar>
-<TabView #element [(ngModel)]="selectedIndex" (selectedIndexChanged)="tabChange()">
-  <template tabItem title="Secrets">
+<ActionBar title="sriracha" style="background-color: rgb(31, 34, 42); color: white;"></ActionBar>
+<TabView #element [(ngModel)]="selectedIndex" (selectedIndexChanged)="tabChange()" selectedTabTextColor="rgb(31, 34, 42)" tabTextColor="white" tabBackgroundColor="rgb(59, 62, 75)">
+  <template tabItem title="🙊 SECRETS">
     <StackLayout *ngIf="userInfos && userInfos.secrets">
       <StackLayout *ngFor="let secret of userInfos.secrets">
         <Label text="{{ secret.name }}"></Label>
@@ -8,7 +8,7 @@
       </StackLayout>
     </StackLayout>
   </template>
-  <FlexboxLayout *tabItem="{title: 'Budget'}" flexDirection="column" class="tab-budget">
+  <FlexboxLayout *tabItem="{title: '🤑 BUDGET'}" flexDirection="column" class="tab-budget">
     <StackLayout *ngIf="!activeBudget">
       <Label text="Amount" class="title"></Label>
       <Label text="The maximum amount you plan to spend" class="legend"></Label>

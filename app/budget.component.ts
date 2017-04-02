@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { UserService } from "./user.service";
 import { Router } from "@angular/router";
+import { topmost } from 'ui/frame';
+declare var UIBarStyle: any;
 
 @Component({
   selector: 'budget',
@@ -15,7 +17,8 @@ export class BudgetComponent {
   activeBudget;
 
   constructor(private userService: UserService, private router: Router) {
-
+    topmost().ios.controller.navigationBar.translucent = false;
+    topmost().ios.controller.navigationBar.barStyle = UIBarStyle.UIBarStyleBlack;
   }
 
   launchBudget() {

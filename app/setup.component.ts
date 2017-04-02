@@ -4,6 +4,8 @@ import { UserService } from "./user.service";
 import { getContact } from 'nativescript-contacts';
 import { RouterExtensions } from "nativescript-angular/router";
 import * as _ from 'lodash';
+import { topmost } from 'ui/frame';
+declare var UIBarStyle: any;
 
 @Component({
   selector: 'setup',
@@ -13,7 +15,8 @@ import * as _ from 'lodash';
 export class SetupComponent {
   friends:any[] = [];
   constructor(private userService: UserService, private routerExtensions: RouterExtensions) {
-
+    topmost().ios.controller.navigationBar.translucent = false;
+    topmost().ios.controller.navigationBar.barStyle = UIBarStyle.UIBarStyleBlack;
   }
 
   addFriend() {
@@ -37,7 +40,7 @@ export class SetupComponent {
         });
       }
 
-      if (this.friends.length === 5) {
+      if (this.friends.length === 3) {
         console.dump(this.friends);
         _.forEach(this.friends, friend => {
           this.userService.addFriend(friend).subscribe(() => {}, () => {});

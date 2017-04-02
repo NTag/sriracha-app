@@ -4,6 +4,7 @@
   font-weight: bold;
   font-size: 20px;
   margin-top: 20px;
+  color: rgb(31, 34, 42);
 }
 .legend {
   margin-bottom: 5px;
@@ -25,12 +26,13 @@
   /*background-color: blue;*/
 }
 .confirm-btn {
-  text-transform: uppercase;
-  background-color: #ccc;
-  border-radius: 5px;
+  /*text-transform: uppercase;*/
+  background-color: #e9314c;
+  border-radius: 4px;
   margin-left: 40px;
   margin-right: 40px;
   height: 60px;
+  color: white;
 }
 .tab-budget {
   justify-content: space-between;
@@ -42,7 +44,7 @@
   font-weight: bold;
   font-size: 40px;
   text-transform: uppercase;
-  color: red;
+  color: #e9314c;
 }
 .text-center {
   text-align: center;

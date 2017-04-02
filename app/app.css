@@ -1,1 +1,10 @@
 @import "nativescript-theme-core/css/core.light.css";
+
+.btn {
+  background-color: rgb(59, 62, 75);
+  border-radius: 4px;
+  height: 50px;
+  color: white;
+  text-align: center;
+  margin: 20px;
+}

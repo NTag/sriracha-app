@@ -1,6 +1,6 @@
-<ActionBar title="Setup"></ActionBar>
+<ActionBar title="SETUP" style="background-color: rgb(31, 34, 42); color: white;"></ActionBar>
 <FlexboxLayout flexDirection="column" style="justify-content: center;">
   <Label text="First, what is your name?" textWrap="true" style="margin: 20px; text-align: center;"></Label>
-  <TextView [(ngModel)]="name" placeholder="Elon Musk" style="margin: 20px; text-align: center; background-color: #eee;" autofocus="autofocus"></TextView>
-  <Button text="Save" (tap)="save()" *ngIf="name && name.length > 1"></Button>
+  <TextView [(ngModel)]="name" placeholder="Elon Musk" style="margin: 20px; text-align: center; background-color: rgba(59, 62, 75, 0.1); border-radius: 4px; height: 40px; font-size: 18px;"></TextView>
+  <Button text="Save &gt;&gt;" class="btn" (tap)="save()" *ngIf="name && name.length > 1"></Button>
 </FlexboxLayout>

@@ -1,12 +1,12 @@
-<ActionBar title="Setup"></ActionBar>
+<ActionBar title="SETUP" style="background-color: rgb(31, 34, 42); color: white;"></ActionBar>
 <FlexboxLayout flexDirection="column">
-  <Label text="Choose 5 friends who will help you not spending too much money" textWrap="true" *ngIf="friends.length < 5" style="margin: 20px; text-align: center;"></Label>
-  <Button text="Add a friend" (tap)="addFriend()" *ngIf="friends.length < 5"></Button>
+  <Label text="Choose 3 friends who will help you not spending too much money" textWrap="true" *ngIf="friends.length < 3" style="margin: 20px; text-align: center;"></Label>
+  <Button class="btn" text="Add a friend" (tap)="addFriend()" *ngIf="friends.length < 3"></Button>
 
-  <Border *ngFor="let friend of friends; let i = index" borderRadius="3" borderWidth="2" borderColor="#ccc" style="margin: 20px; margin-top: 20px; margin-bottom: 0px;">
+  <Border *ngFor="let friend of friends; let i = index" borderRadius="4" borderWidth="1" borderColor="rgb(59, 62, 75)" style="margin: 20px; margin-top: 20px; margin-bottom: 0px;">
     <Label text="{{ i+1 }}. {{ friend.name }}" style="margin: 20px;" (tap)="removeFriend(i)"></Label>
   </Border>
 
-  <Label *ngIf="friends.length === 5" text="You are all set up!" style="text-align: center; margin-top: 30px;"></Label>
-  <Button *ngIf="friends.length === 5" text="Start stop spending money &gt;&gt;" (tap)="goHome()"></Button>
+  <Label *ngIf="friends.length === 3" text="You are all set up!" style="text-align: center; margin-top: 30px;"></Label>
+  <Button class="btn" *ngIf="friends.length === 3" text="Start stop spending money &gt;&gt;" (tap)="goHome()"></Button>
 </FlexboxLayout>
