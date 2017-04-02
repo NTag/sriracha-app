@@ -1,20 +1,21 @@
-<ActionBar title="sriracha" style="background-color: rgb(31, 34, 42); color: white;"></ActionBar>
+<ActionBar title="OH NO BABY WHAT IS YOU DOING" style="background-color: rgb(31, 34, 42); color: white;"></ActionBar>
 <TabView #element [(ngModel)]="selectedIndex" (selectedIndexChanged)="tabChange()" selectedTabTextColor="rgb(31, 34, 42)" tabTextColor="white" tabBackgroundColor="rgb(59, 62, 75)">
-  <ListView [items]="userSecrets" *tabItem="{title: '🙊 SECRETS'}">
+  <ListView [items]="userSecrets" *tabItem="{title: '🙊 SECRETS'}" style="margin-bottom: 60px">
     <template let-item="item">
       <StackLayout style="margin: 10px;">
         <Label text="{{ item.name }}" textWrap="true" style="font-weight: bold;"></Label>
         <Label text="{{ item.secret }}" textWrap="true"></Label>
+        <Image src="{{ item.image_url }}" *ngIf="item.image_url" style="width: 100%; height: auto;"></Image>
       </StackLayout>
     </template>
   </ListView>
-  <FlexboxLayout *tabItem="{title: '🤑 BUDGET'}" flexDirection="column" class="tab-budget">
+  <FlexboxLayout *tabItem="{title: '🤑 BUDGET'}" flexDirection="column" class="tab-budget" (tap)="dismissKeyb()">
     <StackLayout *ngIf="!activeBudget">
       <Label text="Amount" class="title"></Label>
       <Label text="The maximum amount you plan to spend" class="legend"></Label>
       <FlexboxLayout flexDirection="row" class="amount-flex">
         <Label text="£" class="big-mono"></Label>
-        <TextView class="big-mono input" keyboardType="phone" [(ngModel)]="amount"></TextView>
+        <TextView class="big-mono input" keyboardType="phone" [(ngModel)]="amount" #amounte></TextView>
         <Label text=".00" class="big-mono"></Label>
       </FlexboxLayout>
     </StackLayout>

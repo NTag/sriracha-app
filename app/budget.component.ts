@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { UserService } from "./user.service";
 import { Router } from "@angular/router";
 import { topmost } from 'ui/frame';
@@ -26,6 +26,8 @@ export class BudgetComponent {
     this.updateBudgetInfos();
   }
 
+  @ViewChild("amounte") amounte: ElementRef;
+
   launchBudget() {
     function zeros(n:number):string {
       if (n === 0) {
@@ -47,6 +49,16 @@ export class BudgetComponent {
     };
 
     setInterval(updateTimeRemaining, 1000);
+  }
+
+  dismissKeyb() {
+    if (this.amounte && this.amounte.nativeElement) {
+      console.log('youpiyo');
+      if (this.amounte.nativeElement.ios) {
+        console.log('aalalala');
+        this.amounte.nativeElement.dismissSoftInput();
+      }
+    }
   }
 
   updateUserInfos() {

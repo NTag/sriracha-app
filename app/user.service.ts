@@ -7,7 +7,7 @@ import "rxjs/add/operator/map";
 @Injectable()
 export class UserService {
   private access_token:string;
-  private username:string;
+  private username:string = 'jjar';
   // private apiUrl = 'http://localhost:8080';
   private apiUrl = 'http://52.215.87.46:8080';
 
