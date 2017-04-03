@@ -115,6 +115,16 @@ export class BudgetComponent {
         this.userService.addBudget(this.amount, d).subscribe(() => {}, () => {});
         this.cancelable = false;
         this.timeCancel = 10;
+        setInterval(() => {
+          this.userService.getBudget().subscribe(budget => {
+            if (parseInt(budget.amount) - budget.value != this.activeBudget.amount) {
+              this.activeBudget.amount = parseInt(budget.amount) - budget.value;
+            }
+            if (!budget || budget == "null") {
+              this.activeBudget.amount = 0;
+            }
+          });
+        }, 2000);
       }
     }, 1000);
   }
